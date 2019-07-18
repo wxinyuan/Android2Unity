@@ -6,9 +6,10 @@ public class LoginPanel : MonoBehaviour
 {
     enum LoginType
     {
-        GOOGLE      = 0,
-        FACEBOOK    = 1,
-        VISITOR     = 2,
+        NULL        = 0,
+        GOOGLE      = 1,
+        FACEBOOK    = 2,
+        VISITOR     = 3,
     };
 
     public GameObject   m_loginBtn;
@@ -17,15 +18,17 @@ public class LoginPanel : MonoBehaviour
     public GameObject   m_logoutBtn;
 
     public UILabel      m_DisplayName;
-    public UILabel      m_Email;
+    //public UILabel      m_Email;
 	
     void Awake()
     {
         UIEventListener.Get(m_loginBtn).onClick     += OnClickGoogleLogin;
         UIEventListener.Get(m_payBtn).onClick       += OnClickGooglePay;
         UIEventListener.Get(m_facebookBtn).onClick  += OnClickFacebookLogin;
+        UIEventListener.Get(m_logoutBtn).onClick    += OnClickLogout;
 
-        SDKManager.instance.OnSDKLogin += UpdateUI;
+        SDKManager.instance.OnSDKLogin  += UpdateUI;
+        SDKManager.instance.OnSDKLogout += UpdateUI;
     }
 
 	void Start ()
@@ -75,12 +78,25 @@ public class LoginPanel : MonoBehaviour
         Debug.Log(RoleManager.instance.m_displayName);
         if (m_DisplayName != null)
         {
-            m_DisplayName.text = RoleManager.instance.m_displayName;
+            m_DisplayName.text = RoleManager.instance.m_openId;
         }
 
-        if (m_Email != null)
+        //if (m_Email != null)
+        //{
+        //    m_Email.text = RoleManager.instance.m_email;
+        //}
+
+        if (RoleManager.instance.m_openId != "")
         {
-            m_Email.text = RoleManager.instance.m_email;
+            m_loginBtn.SetActive(false);
+            m_facebookBtn.SetActive(false);
+            m_logoutBtn.SetActive(true);
+        }
+        else
+        {
+            m_loginBtn.SetActive(true);
+            m_facebookBtn.SetActive(true);
+            m_logoutBtn.SetActive(false);
         }
     }
 }

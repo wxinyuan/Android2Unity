@@ -11,6 +11,7 @@ public class SDKManager : SingletonMonoBehaviour<SDKManager>
 #endif
 
     public Action OnSDKLogin;
+    public Action OnSDKLogout;
 
     protected override void Awake()
     {
@@ -54,7 +55,7 @@ public class SDKManager : SingletonMonoBehaviour<SDKManager>
 
     void login(JsonData jsonData)
     {
-        Debug.LogError("$$$$$$$$$$$login$$$$$$$$$");
+        //Debug.LogError("$$$$$$$$$$$login$$$$$$$$$");
         if (jsonData.Keys.Contains("token"))
         {
             string strToken = (string)jsonData["token"];
@@ -105,6 +106,22 @@ public class SDKManager : SingletonMonoBehaviour<SDKManager>
         }
     }
 
+    public void OnLogoutResult(int code)
+    {
+        Debug.Log("OnLogoutResult :" + "error:" + code);
+
+        switch (code)
+        {
+            case SDKConstants.SUCCESS:
+                RoleManager.instance.m_openId = "";
+                if (OnSDKLogout != null)
+                {
+                    OnSDKLogout();
+                }
+                break;
+        }
+    }
+
     public void Callback(string jsonstr)
     {
         Debug.Log(jsonstr);
@@ -120,6 +137,10 @@ public class SDKManager : SingletonMonoBehaviour<SDKManager>
         {
             case "login":
                 OnLoginResult(code, data);
+                break;
+
+            case "logout":
+                OnLogoutResult(code);
                 break;
         }
     }

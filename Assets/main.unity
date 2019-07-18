@@ -468,7 +468,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3000
+  startingRenderQueue: 3002
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -635,27 +635,43 @@ Prefab:
       objectReference: {fileID: 654349376}
     - target: {fileID: 4179784026703098, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -366
+      value: -364
       objectReference: {fileID: 0}
     - target: {fileID: 4179784026703098, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1473
+      value: 1474
       objectReference: {fileID: 0}
     - target: {fileID: 4116717836316010, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 4116717836316010, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1473
+      value: 1474
       objectReference: {fileID: 0}
     - target: {fileID: 4594503921020936, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -366
+      value: -364
       objectReference: {fileID: 0}
     - target: {fileID: 4594503921020936, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1545
+      value: 1546
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850822930243396, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850822930243396, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1546
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845713816917206, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352281060095648, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3af4d51e3c02c845a3a03a94de9699f, type: 2}
